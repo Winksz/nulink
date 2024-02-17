@@ -119,10 +119,10 @@ esac
 printGreen "Надаємо дозвіл на папку NuLink" & sleep 2
 chmod -R 777 $HOME/nulink
 
-printGreen "Встановіть пароль, використовуйте пароль, який ви створили раніше" & sleep 2
-read -p "Пароль: " PASS  
-export NULINK_KEYSTORE_PASSWORD=$PASS
-export NULINK_OPERATOR_ETH_PASSWORD=$PASS
+printGreen "Встановіть паролі які вказували при створені сховища" & sleep 2 
+read -p "Ваш пароль: " PASSWORD 
+export NULINK_KEYSTORE_PASSWORD=$PASSWORD
+export NULINK_OPERATOR_ETH_PASSWORD=$PASSWORD
 
 printGreen "Перевірте чи відображаються ваші паролі" & sleep 2
 echo $NULINK_KEYSTORE_PASSWORD
@@ -146,8 +146,8 @@ esac
 
 printGreen "Ініціалізація конфігурації вузла"
 printGreen "Замініть сховище ключів та Публічну адресу (Воркера адресу)" & sleep 2
-read -p "Сховище ключів: " KEYSTORE  
-read -p "Сховище ключів: " OPERATOR_ADDRES
+read -p "Сховище ключів, Ваш UTC: " KEYSTORE  
+read -p "Оператор адрес, починається з 0х: " ADDRESS
 
 
 docker run -it --rm \
@@ -161,7 +161,7 @@ nulink/nulink nulink ursula init \
 --network horus \
 --payment-provider https://data-seed-prebsc-2-s2.binance.org:8545 \
 --payment-network bsc_testnet \
---operator-address $OPERATOR_ADDRES \
+--operator-address $ADDRESS \
 --max-gas-price 10000000000
 
 
