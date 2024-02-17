@@ -27,28 +27,34 @@ printBlue "                         by Fearless       "
 
 sleep 5
 
+echo ""
 printGreen "Відкриваємо порти" & sleep 2
 sudo ufw allow 9151
 sudo ufw allow 9151/tcp
 
+echo ""
 printGreen "Оновлюємо сервер" & sleep 2
 echo ""
 sudo apt update
 sudo apt install python3.9 -y
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
 
+echo ""
 printGreen "Завантажуємо geth" & sleep 2
 wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.23-d901d853.tar.gz
 tar -xvzf geth-linux-amd64-1.10.23-d901d853.tar.gz
 
+echo ""
 printGreen "Переходимо до папки" & sleep 2
 echo ""
 cd geth-linux-amd64-1.10.23-d901d853/
 
+echo ""
 printGreen "Створюємо обліковий запис Ethereum та сховище ключів" & sleep 2
 echo ""
 ./geth account new --keystore ./keystore
 
+echo ""
 printGreen "Продовжіть встановлення якщо ви скопіювали Public address of the key та Path of the secret key file" & sleep 2
 echo ""
 read -p "Продовжити встановлення? (y/n): " choice
@@ -67,6 +73,7 @@ case "$choice" in
     ;;
 esac
 
+echo ""
 printGreen "Оновлення докера" & sleep 2
 echo ""
 sudo apt-get update
@@ -81,15 +88,18 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+echo ""
 printGreen "Завантажуємо останнє зображення NuLink" & sleep 2
 echo ""
 sudo docker pull nulink/nulink:latest
 
+echo ""
 printGreen "Створюємо папку NuLink" & sleep 2
 echo ""
 cd $HOME
 sudo mkdir nulink
 
+echo ""
 printGreen "Перевіряємо чи створилась папка" & sleep 2
 echo ""
 if [ -d $HOME/nulink ]; then
@@ -98,6 +108,7 @@ else
     echo "Папка не існує." & sleep 2
 fi
 
+echo ""
 printGreen "Якщо папка існує продовжуємо встановлення" & sleep 2
 echo ""
 case "$choice" in
@@ -114,16 +125,19 @@ case "$choice" in
     ;;
 esac
 
+echo ""
 printGreen "Копіюємо ваше сховище, введіть ваше значення, наприклад: UTC--2023-12-31T17-42-14.316243885Z--f3defb90c2f03e904bd9662a1f16dcd1ca69b00a /root/nulink" & sleep 2
 echo ""
 read -p "Ваш UTC: " UTC 
 cp $HOME/geth-linux-amd64-1.10.23-d901d853/keystore/$UTC /root/nulink
 
+echo ""
 printGreen "Перевіряємо чи скіпювався Ваш файл UTC" & sleep 2
 echo ""
 cd $HOME/nulink
 ls -la
 
+echo ""
 printGreen "Якщо Ви бачите свій файл UTC, продовжуйте встановлення" & sleep 2
 echo ""
 read -p "Продовжити встановлення? (y/n): " choice
@@ -142,6 +156,7 @@ case "$choice" in
     ;;
 esac
 
+echo ""
 printGreen "Надаємо дозвіл на папку NuLink" & sleep 2
 echo ""
 chmod -R 777 $HOME/nulink
@@ -152,6 +167,7 @@ read -p "Ваш пароль: " PASSWORD
 export NULINK_KEYSTORE_PASSWORD=$PASSWORD
 export NULINK_OPERATOR_ETH_PASSWORD=$PASSWORD
 
+echo ""
 printGreen "Перевірте чи відображаються ваші паролі" & sleep 2
 echo ""
 echo $NULINK_KEYSTORE_PASSWORD
@@ -173,6 +189,7 @@ case "$choice" in
     ;;
 esac
 
+echo ""
 printGreen "Ініціалізація конфігурації вузла"
 echo ""
 printGreen "Замініть сховище ключів та Публічну адресу (Воркера адресу)" & sleep 2
@@ -193,8 +210,8 @@ nulink/nulink nulink ursula init \
 --payment-network bsc_testnet \
 --operator-address $ADDRESS \
 --max-gas-price 10000000000
-echo ""
 
+echo ""
 printGreen "Запускаємо вузол" & sleep 2
 docker run --restart on-failure -d \
 --name ursula \
@@ -204,15 +221,16 @@ docker run --restart on-failure -d \
 -e NULINK_KEYSTORE_PASSWORD \
 -e NULINK_OPERATOR_ETH_PASSWORD \
 nulink/nulink nulink ursula run --no-block-until-ready
+
+
+
+
+printGreen "Якщо ви побачили надпис наприклад: Operator 0x.................... is not bonded to a staking provider" sleep 2
+printGreen "Перейдіть до дашборду, відправте на адресу воркера 0,1 BNB та зробіть стейкінг 10 NLK" sleep 2
+printGreen "Якщо ви побачили інший результат, напишіть нам в діскорд" & sleep 2
 echo ""
-
-
-
-printGreen "Якщо ви побачили надпис наприклад: Operator 0x02B2d1f206126cdb0B9A19C5C5B44d6c84eC8E2C is not bonded to a staking provider" sleep 2
-printGreen "Перейдіть до дашборду, відправте на адресу воркера 0,1BNB та зробіть стейкінг" sleep 2
-printGreen "Якщо ви побачили інший надпис, напишіть нам в діскорд" & sleep 2
+printGreen "Перевірка статусу, логів, можлива затримка 1 хвилину, дочекайтесь"
 echo ""
-printGreen "Перевірка статусу, логів"
 docker logs -f ursula
 
 
