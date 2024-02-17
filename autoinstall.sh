@@ -92,7 +92,7 @@ case "$choice" in
 esac
 
 printGreen "Копіюємо ваше сховище, введіть ваше значення, наприклад: UTC--2023-12-31T17-42-14.316243885Z--f3defb90c2f03e904bd9662a1f16dcd1ca69b00a /root/nulink" & sleep 2
-read -p "Ваш UTC: "  
+read -p "Ваш UTC: " UTC 
 cp $HOME/geth-linux-amd64-1.10.23-d901d853/keystore/$UTC /root/nulink
 
 printGreen "Перевіряємо чи скіпювався Ваш файл UTC" & sleep 2
