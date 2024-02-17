@@ -192,9 +192,9 @@ esac
 echo ""
 printGreen "Ініціалізація конфігурації вузла"
 echo ""
-printGreen "Замініть сховище ключів та Публічну адресу (Воркера адресу)" & sleep 2
-read -p "Сховище ключів, Ваш UTC: " KEYSTORE  
-read -p "Оператор адрес, починається з 0х: " ADDRESS
+printGreen "Замініть Public address of the key та Path of the secret key file" & sleep 2
+read -p "Path of the secret key file: " KEYSTORE  
+read -p "Public address of the key: " ADDRESS
 
 
 docker run -it --rm \
