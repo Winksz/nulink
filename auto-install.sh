@@ -1,5 +1,16 @@
 #!/bin/bash
 
+printBlue() {
+    echo -e "\e[34m$1\e[0m"
+}
+
+printBlue #    _   _       _     _       _                       
+printBlue #   | \ | |_   _| |   (_)_ __ | | __                   
+printBlue #   |  \| | | | | |   | | '_ \| |/ /                   
+printBlue #   | |\  | |_| | |___| | | | |   <                    
+printBlue #   |_| \_|\__,_|_____|_|_| |_|_|\_\                   
+printBlue #   by Fearless
+
 printGreen() {
     echo -e "\e[32m$1\e[0m"
 }
