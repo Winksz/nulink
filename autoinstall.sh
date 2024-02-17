@@ -20,7 +20,7 @@ sudo ufw allow 9151/tcp
 printGreen "Оновлюємо сервер" & sleep 2
 echo ""
 sudo apt update
-sudo apt install python3.9
+sudo apt install python3.9 -y
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
 
 printGreen "Завантажуємо geth" & sleep 2
@@ -58,7 +58,7 @@ echo ""
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "y" | curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
