@@ -4,13 +4,6 @@ printBlue() {
     echo -e "\e[34m$1\e[0m"
 }
 
-printBlue #    _   _       _     _       _                       
-printBlue #   | \ | |_   _| |   (_)_ __ | | __                   
-printBlue #   |  \| | | | | |   | | '_ \| |/ /                   
-printBlue #   | |\  | |_| | |___| | | | |   <                    
-printBlue #   |_| \_|\__,_|_____|_|_| |_|_|\_\                   
-printBlue #   by Fearless
-
 printGreen() {
     echo -e "\e[32m$1\e[0m"
 }
@@ -23,6 +16,16 @@ error_exit() {
 if [ "$EUID" -ne 0 ]; then
     error_exit "Даний скрипт потребує прав адміністратора. Запустіть його з правами sudo."
 fi
+
+
+printBlue #    _   _       _     _       _                       
+printBlue #   | \ | |_   _| |   (_)_ __ | | __                   
+printBlue #   |  \| | | | | |   | | '_ \| |/ /                   
+printBlue #   | |\  | |_| | |___| | | | |   <                    
+printBlue #   |_| \_|\__,_|_____|_|_| |_|_|\_\                   
+printBlue #   by Fearless
+
+sleep 5
 
 printGreen "Відкриваємо порти" & sleep 2
 sudo ufw allow 9151
