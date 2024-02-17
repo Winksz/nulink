@@ -18,12 +18,12 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 
-printBlue     _   _       _     _       _                       
-printBlue    | \ | |_   _| |   (_)_ __ | | __                   
-printBlue    |  \| | | | | |   | | '_ \| |/ /                   
-printBlue    | |\  | |_| | |___| | | | |   <                    
-printBlue    |_| \_|\__,_|_____|_|_| |_|_|\_\                   
-printBlue    by Fearless
+printBlue"     _   _       _     _       _           "            
+printBlue"    | \ | |_   _| |   (_)_ __ | | __       "            
+printBlue"    |  \| | | | | |   | | '_ \| |/ /       "           
+printBlue"    | |\  | |_| | |___| | | | |   <        "            
+printBlue"    |_| \_|\__,_|_____|_|_| |_|_|\_\       "            
+printBlue"    by Fearless                            "
 
 sleep 5
 
