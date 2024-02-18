@@ -1,6 +1,10 @@
+![nulink](https://github.com/CryptoManUA/nulink/assets/143862878/344b1023-afa7-49ff-a559-b932673d3b9f)
+
+
 **NuLink Testnet Horus 2.0**
 
-Minimum System Requirements
+**Minimum System Requirements**
+
 Debian/Ubuntu 20.04 (Recommended)
 4 GB Ram
 30GB Available Storage
