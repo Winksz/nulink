@@ -50,7 +50,8 @@ echo ""
 cd geth-linux-amd64-1.10.23-d901d853/
 
 echo ""
-printGreen "Створюємо обліковий запис Ethereum та сховище ключів" & sleep 2
+printGreen "Створіть обліковий запис Ethereum і сховище ключів» & sleep 2
+printGreen "Вам буде запропоновано ввести пароль і підтвердити пароль. Будь ласка, запам'ятайте цей пароль для подальшого використання" & sleep 2
 echo ""
 ./geth account new --keystore ./keystore
 
@@ -168,7 +169,7 @@ export NULINK_KEYSTORE_PASSWORD=$PASSWORD
 export NULINK_OPERATOR_ETH_PASSWORD=$PASSWORD
 
 echo ""
-printGreen "Перевірте чи відображаються ваші паролі" & sleep 2
+printGreen "Перевірте, чи відображаються ваші паролі, мають відображатися два ваших паролі " & sleep 2
 echo ""
 echo $NULINK_KEYSTORE_PASSWORD
 echo $NULINK_OPERATOR_ETH_PASSWORD
@@ -193,7 +194,9 @@ echo ""
 printGreen "Ініціалізація конфігурації вузла"
 echo ""
 printGreen "Замініть Public address of the key та Path of the secret key file" & sleep 2
-read -p "Path of the secret key file: " KEYSTORE  
+printGreen "Наприклад: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c" 
+read -p "Path of the secret key file: " KEYSTORE
+printGreen "Наприклад: 0x...................." 
 read -p "Public address of the key: " ADDRESS
 
 
@@ -224,7 +227,8 @@ nulink/nulink nulink ursula run --no-block-until-ready
 
 
 
-
+echo ""
+echo ""
 printGreen "Якщо ви побачили надпис наприклад: Operator 0x.................... is not bonded to a staking provider" sleep 2
 printGreen "Перейдіть до дашборду, відправте на адресу воркера 0,1 BNB та зробіть стейкінг 10 NLK" sleep 2
 printGreen "Якщо ви побачили інший результат, напишіть нам в діскорд" & sleep 2
