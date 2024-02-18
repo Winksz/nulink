@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_menu() {
-    whiptail --clear --title "Оберіть опцію" --backtitle "Назва вашого фону" \
+    tput --clear --title "Оберіть опцію" --backtitle "NuLink" \
     --menu "Виберіть опцію:" 15 50 4 \
     1 "Опція 1" \
     2 "Опція 2" \
