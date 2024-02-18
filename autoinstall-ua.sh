@@ -169,7 +169,7 @@ export NULINK_KEYSTORE_PASSWORD=$PASSWORD
 export NULINK_OPERATOR_ETH_PASSWORD=$PASSWORD
 
 echo ""
-printGreen "Перевірте, чи відображаються ваші паролі, мають відображатися два ваших паролі " & sleep 2
+printGreen "Перевірте, чи відображаються ваші паролі, мають відображатися два ваших паролі" & sleep 2
 echo ""
 echo $NULINK_KEYSTORE_PASSWORD
 echo $NULINK_OPERATOR_ETH_PASSWORD
