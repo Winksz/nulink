@@ -20,6 +20,4 @@
 ```
 bash <(curls -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-en.sh)
 ```
-```
-apt install ufw -y
-```
+
