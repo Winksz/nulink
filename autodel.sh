@@ -20,7 +20,5 @@ printGreen "This will remove everything associated with the node" & sleep 2
 rm -rf $HOME/nulink
 rm -rf $HOME/geth-linux-amd64-1.10.23-d901d853/
 rm -rf /etc/apt/keyrings
-docker kill ursula
-docker rm ursula
 
-printGreen "Everything related to the Nulink node has been successfully deleted"
+printGreen "Everything related to the Nulink node has been successfully deleted" & sleep 2
