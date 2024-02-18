@@ -12,19 +12,20 @@ current_choice=1
 print_menu
 
 while true; do
-    read -rsn3 input
+    read -rsn1 input
     case "$input" in
-        $'\x1b[A') # Стрілка вгору
-            ((current_choice--))
+        $'\x1b')    # Стрілка
+            read -rsn2 input
+            case "$input" in
+                '[A') # Стрілка вгору
+                    ((current_choice--))
+                    ;;
+                '[B') # Стрілка вниз
+                    ((current_choice++))
+                    ;;
+            esac
             ;;
-        $'\x1b[B') # Стрілка вниз
-            ((current_choice++))
-            ;;
-        $'\x1b[C') # Стрілка вправо
-            ;;
-        $'\x1b[D') # Стрілка вліво
-            ;;
-        $'\n') # Enter
+        $'\n')      # Enter
             case "$current_choice" in
                 1)
                     echo "Ви обрали Опцію 1"
