@@ -25,7 +25,7 @@ while true; do
                     ;;
             esac
             ;;
-        $'\n')      # Enter
+        $'\x0a')   # Enter
             case "$current_choice" in
                 1)
                     echo "Ви обрали Опцію 1"
