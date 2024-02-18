@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Функція для виводу меню
 print_menu() {
     echo "Оберіть опцію:"
     echo "1. Опція 1"
@@ -9,52 +8,46 @@ print_menu() {
     echo "4. Вихід"
 }
 
-# Отримуємо вибір користувача
+current_choice=1
 print_menu
+
 while true; do
-    read -rsn1 choice
-    case "$choice" in
-        $'\e[A') # Стрілка вгору
+    read -rsn3 input
+    case "$input" in
+        $'\x1b[A') # Стрілка вгору
             ((current_choice--))
             ;;
-        $'\e[B') # Стрілка вниз
+        $'\x1b[B') # Стрілка вниз
             ((current_choice++))
             ;;
-        $'\e') # Escape - можливо, стрілка
-            read -rsn2 arrow # Прочитати ще 2 символи
-            case "$arrow" in
-                '[A') # Стрілка вгору
-                    ((current_choice--))
-                    ;;
-                '[B') # Стрілка вниз
-                    ((current_choice++))
-                    ;;
-            esac
+        $'\x1b[C') # Стрілка вправо
+            ;;
+        $'\x1b[D') # Стрілка вліво
             ;;
         $'\n') # Enter
             case "$current_choice" in
-                1) 
+                1)
                     echo "Ви обрали Опцію 1"
                     ;;
-                2) 
+                2)
                     echo "Ви обрали Опцію 2"
                     ;;
-                3) 
+                3)
                     echo "Ви обрали Опцію 3"
                     ;;
-                4) 
+                4)
                     echo "Ви обрали Вихід. До побачення!"
                     exit 0
                     ;;
             esac
             ;;
     esac
-    # Обробка обмежень на вибір
+
     if [ "$current_choice" -lt 1 ]; then
         current_choice=1
     elif [ "$current_choice" -gt 4 ]; then
         current_choice=4
     fi
-    # Вивід меню з підсвіткою вибраної опції
+
     print_menu
 done
