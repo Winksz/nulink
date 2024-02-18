@@ -23,5 +23,5 @@ bash <(curl -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoins
 <h1>Автоматичне встановлення ноди Українською<h6>
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-en.sh)
+bash <(curl -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-ua.sh)
 ```
