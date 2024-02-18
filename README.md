@@ -16,6 +16,10 @@
 
 
 <h1>Automatic node installation<h6>
+
 ```
 bash <(curls -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-en.sh)
+```
+```
+apt install ufw -y
 ```
