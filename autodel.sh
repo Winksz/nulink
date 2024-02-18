@@ -4,11 +4,6 @@ printBlue() {
     echo -e "\e[34m$1\e[0m"
 }
 
-error_exit() {
-    echo "$1" 1>&2
-    exit 1
-}
-
 printBlue "     _   _       _     _       _           "            
 printBlue "    | \ | |_   _| |   (_)_ __ | | __       "            
 printBlue "    |  \| | | | | |   | | '_ \| |/ /       "           
