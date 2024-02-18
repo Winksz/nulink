@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_menu() {
-    dialog --clear --title "Оберіть опцію" --backtitle "Назва вашого фону" \
+    whiptail --clear --title "Оберіть опцію" --backtitle "Назва вашого фону" \
     --menu "Виберіть опцію:" 15 50 4 \
     1 "Опція 1" \
     2 "Опція 2" \
