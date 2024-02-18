@@ -192,10 +192,11 @@ echo ""
 printGreen "Initializing the node configuration"
 echo ""
 printGreen "Replacing Public address of the key and Path of the secret key file" & sleep 2
-read -p "Path of the secret key file: " KEYSTORE
 printGreen "Example: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c" 
-read -p "Public address of the key: " ADDRESS
+read -p "Path of the secret key file: " KEYSTORE
 printGreen "Example: 0x...................." 
+read -p "Public address of the key: " ADDRESS
+
 
 
 docker run -it --rm \
