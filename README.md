@@ -1,7 +1,7 @@
 ![nulink](https://github.com/CryptoManUA/nulink/assets/143862878/344b1023-afa7-49ff-a559-b932673d3b9f)
 
 
-**NuLink Testnet Horus 2.0**
+# NuLink Testnet Horus 2.0
 
 <h1>Minimum System Requirements<h6>
 
@@ -13,3 +13,7 @@
  - Static IP address
  - Exposed TCP port 9151, make sure it's not occupied
  - Nodes can be run on cloud infrastructure
+
+
+<h1>Automatic node installation<h6>
+```bash <(curls -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-en.sh)```
