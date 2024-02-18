@@ -226,7 +226,8 @@ nulink/nulink nulink ursula run --no-block-until-ready
 
 
 
-
+echo ""
+echo ""
 printGreen "If you saw the inscription, for example: Operator 0x.................... is not bonded to a staking provider" sleep 2
 printGreen "Go to the dashboard, send 0.1 BNB to the worker address and stake 10 NLK" sleep 2
 printGreen "If you see a different result, write to us in Discord" & sleep 2
