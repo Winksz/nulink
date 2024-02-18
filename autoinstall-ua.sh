@@ -100,7 +100,7 @@ cd $HOME
 sudo mkdir nulink
 
 echo ""
-printGreen Перевіряємо чи свторилась папка" & sleep 2
+printGreen "Перевіряємо чи створилась папка" & sleep 2
 echo ""
 if [ -d $HOME/nulink ]; then
     echo "Папка існує..." & sleep 2
@@ -112,6 +112,7 @@ echo ""
 printGreen "Якщо папка існує, продовжіть встановлення" & sleep 2
 echo ""
 read -p "Continue installation? (y/n): " choice
+
 case "$choice" in
   y|Y ) 
     echo "Continuation..." & sleep 2
