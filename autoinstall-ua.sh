@@ -50,7 +50,7 @@ echo ""
 cd geth-linux-amd64-1.10.23-d901d853/
 
 echo ""
-printGreen "Створюэмо Ethereum акаунт та сховище" & sleep 2
+printGreen "Створюємо Ethereum акаунт та сховище" & sleep 2
 printGreen "Вам буде запропоновано ввести пароль і підтвердити пароль. Будь ласка, запам'ятайте цей пароль для пізнього використання." & sleep 2
 echo ""
 ./geth account new --keystore ./keystore
@@ -127,19 +127,19 @@ case "$choice" in
     ;;
 esac
 echo ""
-printGreen "Copying your repository, enter your value, for example: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c" & sleep 2
+printGreen "Вставте своє значення UTC, наприклад: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c" & sleep 2
 echo ""
 read -p "Your UTC: " UTC 
 cp $HOME/geth-linux-amd64-1.10.23-d901d853/keystore/$UTC /root/nulink
 
 echo ""
-printGreen "Сheck if the UTC file has been copied" & sleep 2
+printGreen "Перевірте чи з'явився в папці Ваш UTC" & sleep 2
 echo ""
 cd $HOME/nulink
 ls -la
 
 echo ""
-printGreen "If you see your UTC file, continue with the installation" & sleep 2
+printGreen "Якщо Ви побачили свій UTC, продовжуйте встановлення" & sleep 2
 echo ""
 read -p "Continue installation? (y/n): " choice
 case "$choice" in
@@ -159,18 +159,18 @@ esac
 cd $HOME
 
 echo ""
-printGreen "Permission granted to the NuLink folder" & sleep 2
+printGreen "Надаємо дозвіл NuLink папці" & sleep 2
 echo ""
 chmod -R 777 $HOME/nulink
 
-printGreen "Set the passwords that were specified when creating Ethereum" & sleep 2
+printGreen "Встановіть паролі, які були вказані при створенні Ethereum" & sleep 2
 echo ""
 read -p "Enter your password: " PASSWORD 
 export NULINK_KEYSTORE_PASSWORD=$PASSWORD
 export NULINK_OPERATOR_ETH_PASSWORD=$PASSWORD
 
 echo ""
-printGreen "Check if your passwords are displayed, two of your passwords should be displayed" & sleep 2
+printGreen "Перевірте, чи відображаються ваші паролі, мають відображатися два ваших паролі" & sleep 2
 echo ""
 echo $NULINK_KEYSTORE_PASSWORD
 echo $NULINK_OPERATOR_ETH_PASSWORD
@@ -190,15 +190,18 @@ case "$choice" in
     ;;
 esac
 echo ""
-printGreen "Initializing the node configuration"
+printGreen "Ініціалізація та конфігурація вузла"
 echo ""
-printGreen "Replacing Public address of the key and Path of the secret key file" & sleep 2
-printGreen "Example: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c" 
+printGreen "Вставте Ваш Public address of the key та Path of the secret key file" & sleep 2
+echo ""
+printGreen "Example: UTC--2024-02-17T19-37-42.712584935Z--02b2d1f206126cdb0b9a19c5c5b44d6c84ec8e2c"
+echo ""
 read -p "Path of the secret key file: " KEYSTORE
+echo ""
 printGreen "Example: 0x...................." 
+echo ""
 read -p "Public address of the key: " ADDRESS
-
-
+echo ""
 
 docker run -it --rm \
 -p 9151:9151 \
@@ -215,7 +218,7 @@ nulink/nulink nulink ursula init \
 --max-gas-price 10000000000
 
 echo ""
-printGreen "We start the node" & sleep 2
+printGreen "Запускаємо ноду" & sleep 2
 docker run --restart on-failure -d \
 --name ursula \
 -p 9151:9151 \
@@ -229,11 +232,11 @@ nulink/nulink nulink ursula run --no-block-until-ready
 
 echo ""
 echo ""
-printGreen "If you saw the inscription, for example: Operator 0x.................... is not bonded to a staking provider" sleep 2
-printGreen "Go to the dashboard, send 0.1 BNB to the worker address and stake 10 NLK" sleep 2
-printGreen "If you see a different result, write to us in Discord" & sleep 2
+printGreen "Якщо ви побачили напис, наприклад: Operator 0x.................... is not bonded to a staking provider" sleep 2
+printGreen "Перейдіть в дашборд сайту, надішліть 0,1 BNB на адресу воркера та зробіть стейк 10 NLK" sleep 2
+printGreen "Якщо ви побачите інший результат, напишіть нам в Discord" & sleep 2
 echo ""
-printGreen "Checking the status, logs, a possible delay of 1 minute, please wait"
+printGreen "Перевірка статусу, логів, можлива затримка 1 хвилина, зачекайте"
 echo ""
 docker logs -f ursula
 
