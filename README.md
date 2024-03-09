@@ -16,7 +16,7 @@
 
 
 <h1>Automatic node installation English<h6>
-
+https://youtu.be/Nnuj5t5HdLU
 ```
 bash <(curl -s https://raw.githubusercontent.com/CryptoManUA/nulink/main/autoinstall-en.sh)
 ```
